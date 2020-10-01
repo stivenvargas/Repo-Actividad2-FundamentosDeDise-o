@@ -8,6 +8,8 @@ package principiossolidgrasp;
 import com.Dao.UsuarioDao;
 import com.Dao.VehiculoDao;
 import com.Dto.Chevrolet;
+import com.Dto.Gato;
+import com.Dto.Perro;
 import com.Dto.Pinguino;
 import com.Dto.Renault;
 import com.Dto.UsuarioDto;
@@ -26,7 +28,7 @@ public class PrincipiosSolidGrasp {
      */
     public static void main(String[] args) {
         //Clase responsable del manejo de los atributos
-        UsuarioDto usuarioDto= new UsuarioDto();    
+        UsuarioDto usuarioDto= new UsuarioDto();   // Ejemplo principio Creador Grasp  
         usuarioDto.setId("12345");
         usuarioDto.setNombres("Andres Felipe");
         usuarioDto.setApellidos("Perez Perez");
@@ -34,10 +36,10 @@ public class PrincipiosSolidGrasp {
         usuarioDto.setTelefono("313331331");
         
         // Clase responsable de los accesos a la base de datos
-        System.out.println("Principio responsabilidad absoluta, Inversión de dependencias, +Bajo aclopamienta /alta cohesion-GRASP+ inicio");
+        System.out.println("Principio responsabilidad absoluta, Inversión de dependencias, +Bajo aclopamiento /alta cohesion-GRASP+ inicio");
         UsuarioDao usuarioDao = new UsuarioDao();
         usuarioDao.crearUsuario(usuarioDto);
-        System.out.println("Principio responsabilidad absoluta Inversión de dependencias +Bajo aclopamienta /alta cohesion-GRASP+ fin");
+        System.out.println("Principio responsabilidad absoluta Inversión de dependencias +Bajo aclopamiento /alta cohesion-GRASP+ fin");
         System.out.println("*************************************");
         
         //principio abierto/ cerrado, asi podemos obtener el precio de cada vehiculo pero meedio de una clase abstracta
@@ -56,6 +58,15 @@ public class PrincipiosSolidGrasp {
         pinguino.nadar();
         System.out.println("Principio de segregación de interfaz fin");
         System.out.println("***************************************");
+        
+        //Ejemplo polimorfismo
+        System.out.println("Inicio polimorfismo");
+        Perro perro = new Perro();
+        Gato gato = new Gato();
+        perro.hacerSonido();
+        gato.hacerSonido();
+        System.out.println("Fin polimorfismo");
+        System.out.println("**************************");
     }
     
 }
